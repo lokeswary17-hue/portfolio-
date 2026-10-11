@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Darmavarapu Lokeswari — Computer Science Engineering student portfolio">
+<title>Darmavarapu Lokeswari | Computer Science Engineer</title>
+<style>
+:root{
+  --color-primary:#D96C9D;
+  --color-secondary:#9B6A8F;
+  --color-bg:#FFF8FB;
+  --color-surface:#FFFFFF;
+  --color-text:#2D1E26;
+  --color-accent:#F3A6C8;
+  --color-muted:#735C68;
+  --color-border:rgba(155,106,143,.20);
+  --color-primary-soft:rgba(217,108,157,.12);
+  --color-secondary-soft:rgba(155,106,143,.10);
+  --color-glow:rgba(217,108,157,.28);
+  --shadow:0 18px 50px rgba(45,30,38,.08);
+  --radius:22px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--color-bg);color:var(--color-text);
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  line-height:1.6;overflow-x:hidden
+}
+::selection{background:var(--color-accent);color:var(--color-text)}
+a{color:inherit;text-decoration:none}
+button,a{outline-offset:4px}
+a:focus-visible,button:focus-visible{outline:3px solid var(--color-accent)}
+#particles{position:fixed;inset:0;pointer-events:none;z-index:-1;overflow:hidden}
+.particle{position:absolute;width:5px;height:5px;border-radius:50%;background:var(--color-primary);opacity:.16;animation:float 12s ease-in-out infinite}
+@keyframes float{50%{transform:translate3d(25px,-35px,0)}}
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  background:rgba(255,248,251,.82);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--color-border);transition:transform .5s ease,box-shadow .4s ease
+}
+.nav.hidden{transform:translateY(-100%)}
+.nav-inner{max-width:1120px;margin:auto;height:72px;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-weight:800;letter-spacing:-.04em}.brand span{color:var(--color-primary)}
+.nav-links{display:flex;gap:22px;font-size:.9rem;color:var(--color-muted)}
+.nav-links a{position:relative;padding:7px 0}.nav-links a:after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--color-primary);transition:width .3s ease}.nav-links a:hover:after,.nav-links a.active:after{width:100%}
+main{max-width:1120px;margin:auto;padding:0 24px}
+.hero{min-height:92vh;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding-top:88px}
+.eyebrow{display:inline-flex;gap:8px;align-items:center;padding:7px 12px;border:1px solid var(--color-border);background:var(--color-surface);border-radius:999px;color:var(--color-secondary);font-size:.82rem;font-weight:700}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--color-primary);box-shadow:0 0 18px var(--color-glow)}
+h1{font-size:clamp(3rem,7vw,6.4rem);line-height:.95;letter-spacing:-.065em;margin:20px 0 18px}
+h1 span{color:var(--color-primary)}
+.hero-tagline{font-size:clamp(1.1rem,2vw,1.45rem);max-width:610px;color:var(--color-muted);margin:0 0 28px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:12px;font-weight:750;border:1px solid var(--color-border);transition:transform .35s ease,box-shadow .35s ease,background .35s ease}
+.btn-primary{background:var(--color-primary);color:white;border-color:var(--color-primary);box-shadow:0 12px 28px var(--color-glow)}
+.btn-secondary{background:var(--color-surface);color:var(--color-text)}
+.btn:hover{transform:translateY(-3px);box-shadow:0 14px 30px var(--color-glow)}
+.hero-visual{height:430px;display:grid;place-items:center;perspective:900px}
+.scene{position:relative;width:260px;height:260px;transform-style:preserve-3d;animation:sceneFloat 7s ease-in-out infinite;transition:transform .2s ease}
+@keyframes sceneFloat{50%{transform:translateY(-12px) rotateX(3deg) rotateY(-5deg)}}
+.cube{position:absolute;inset:30px;transform-style:preserve-3d;animation:spin 18s linear infinite}
+@keyframes spin{to{transform:rotateX(360deg) rotateY(360deg)}}
+.face{position:absolute;inset:0;border:2px solid rgba(217,108,157,.48);background:linear-gradient(135deg,rgba(243,166,200,.18),rgba(155,106,143,.06));backdrop-filter:blur(5px);box-shadow:inset 0 0 40px rgba(217,108,157,.08),0 0 45px rgba(217,108,157,.12)}
+.f1{transform:translateZ(90px)}.f2{transform:rotateY(180deg) translateZ(90px)}.f3{transform:rotateY(90deg) translateZ(90px)}.f4{transform:rotateY(-90deg) translateZ(90px)}.f5{transform:rotateX(90deg) translateZ(90px)}.f6{transform:rotateX(-90deg) translateZ(90px)}
+.code-card{position:absolute;width:230px;left:15px;top:110px;padding:18px;border-radius:18px;background:rgba(255,255,255,.9);border:1px solid var(--color-border);box-shadow:var(--shadow);transform:translateZ(150px);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;color:var(--color-secondary)}
+.code-card b{color:var(--color-primary)}
+.orbit{position:absolute;inset:-25px;border:1px solid var(--color-accent);border-radius:50%;transform:rotateX(67deg) rotateZ(10deg);opacity:.55}
+.orbit:after{content:"";position:absolute;top:50%;left:3%;width:12px;height:12px;border-radius:50%;background:var(--color-primary);box-shadow:0 0 25px var(--color-primary)}
+section{padding:105px 0;scroll-margin-top:70px}
+.section-head{max-width:720px;margin-bottom:42px}
+.kicker{color:var(--color-primary);font-weight:800;text-transform:uppercase;letter-spacing:.12em;font-size:.76rem}
+h2{font-size:clamp(2rem,4vw,3.3rem);letter-spacing:-.05em;line-height:1.05;margin:9px 0 12px}
+.section-head p{color:var(--color-muted);margin:0}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)}
+.about-copy{font-size:1.05rem;color:var(--color-muted)}
+.info-list{display:grid;gap:13px}.info-row{display:flex;justify-content:space-between;gap:20px;border-bottom:1px dashed var(--color-border);padding-bottom:11px}.info-row:last-child{border-bottom:0}.label{color:var(--color-secondary);font-weight:700}.value{text-align:right}
+.timeline{position:relative;margin-top:20px;padding-left:34px}.timeline:before{content:"";position:absolute;left:8px;top:0;bottom:0;width:2px;background:linear-gradient(var(--color-primary),var(--color-accent));transform-origin:top;transform:scaleY(0);transition:transform 1.2s ease}.timeline.draw:before{transform:scaleY(1)}
+.timeline-item{position:relative;margin:0 0 24px}.timeline-item:before{content:"";position:absolute;left:-31px;top:29px;width:11px;height:11px;border-radius:50%;background:var(--color-primary);box-shadow:0 0 0 6px var(--color-primary-soft)}
+.meta{color:var(--color-secondary);font-weight:700;font-size:.85rem}.timeline-item h3{margin:4px 0}.timeline-item ul{margin:10px 0 0;padding-left:18px;color:var(--color-muted)}
+.project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.project{min-height:270px;transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s ease;transform-style:preserve-3d}
+.project:hover{box-shadow:0 25px 55px rgba(45,30,38,.13)}
+.project h3{font-size:1.35rem;margin:12px 0 8px}.project p{color:var(--color-muted)}.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.tag{padding:6px 9px;border-radius:999px;background:var(--color-secondary-soft);color:var(--color-secondary);font-size:.76rem;font-weight:750}
+.skills{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.skill-group h3{margin-top:0}.skill-list{display:flex;flex-wrap:wrap;gap:8px}.skill{padding:8px 10px;border:1px solid var(--color-border);border-radius:10px;background:var(--color-surface);transition:transform .3s ease,box-shadow .3s ease}.skill:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 10px 24px var(--color-primary-soft)}
+.edu-grid{display:grid;gap:14px}.edu-card{display:flex;justify-content:space-between;gap:20px;align-items:flex-start}.edu-card .year{color:var(--color-secondary);font-weight:750;white-space:nowrap}
+.extras-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.list-clean{margin:0;padding-left:18px;color:var(--color-muted)}
+.contact{background:linear-gradient(135deg,rgba(243,166,200,.24),rgba(255,255,255,.85));border:1px solid var(--color-border);border-radius:28px;padding:42px;display:flex;justify-content:space-between;gap:30px;align-items:center}
+.contact p{color:var(--color-muted)}
+footer{padding:35px 0 50px;color:var(--color-muted);font-size:.88rem;display:flex;justify-content:space-between;gap:20px;border-top:1px solid var(--color-border)}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:none}
+.stagger>*{transition-delay:calc(var(--i,0) * 90ms)}
+.cursor{position:fixed;width:18px;height:18px;border:1px solid var(--color-primary);border-radius:50%;pointer-events:none;z-index:100;transform:translate(-50%,-50%);opacity:0;transition:width .2s,height .2s,opacity .2s;mix-blend-mode:multiply}
+@media(max-width:800px){.nav-links{display:none}.hero{grid-template-columns:1fr;padding-top:120px}.hero-visual{height:330px}.about-grid,.project-grid,.extras-grid{grid-template-columns:1fr}.skills{grid-template-columns:1fr 1fr}.contact{display:block}.contact .btn{margin-top:12px}}
+@media(max-width:520px){main{padding:0 17px}.hero{min-height:auto;padding-bottom:50px}.hero-visual{transform:scale(.82);margin:-30px 0}.skills{grid-template-columns:1fr}section{padding:75px 0}.card{padding:22px}.edu-card{display:block}.value{text-align:left}.info-row{display:block}.contact{padding:28px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.particle,.scene,.cube{animation:none}.reveal{opacity:1;transform:none;transition:none}.timeline:before{transform:scaleY(1);transition:none}.btn,.project,.skill{transition:none}}
+</style>
+</head>
+<body>
+<div id="particles" aria-hidden="true"></div>
+<div class="cursor" id="cursor"></div>
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#home">Lokeswari<span>.</span></a>
+    <div class="nav-links">
+      <a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#education">Education</a><a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+<section class="hero" id="home">
+  <div class="reveal">
+    <div class="eyebrow"><span class="dot"></span> Computer Science Engineering Student</div>
+    <h1>Darmavarapu <span>Lokeswari</span></h1>
+    <p class="hero-tagline" id="tagline">Building practical software with Java, web technologies and AI foundations.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#projects">View projects</a>
+      <a class="btn btn-secondary" href="mailto:lokeswary17@gmail.com">Contact me</a>
+    </div>
+  </div>
+  <div class="hero-visual reveal" id="heroVisual" aria-label="Decorative 3D software engineering visual">
+    <div class="scene">
+      <div class="orbit"></div>
+      <div class="cube"><div class="face f1"></div><div class="face f2"></div><div class="face f3"></div><div class="face f4"></div><div class="face f5"></div><div class="face f6"></div></div>
+      <div class="code-card"><b>class</b> Lokeswari {<br>&nbsp;&nbsp;skills = [Java, Web, AI];<br>&nbsp;&nbsp;build();<br>}</div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="section-head reveal"><div class="kicker">About</div><h2>A little about me</h2><p>Warm, practical and focused on growing through real projects.</p></div>
+  <div class="about-grid">
+    <div class="card reveal"><p class="about-copy">I am a B.Tech Computer Science and Engineering student with a CGPA of 8.33. I am interested in software development, full-stack development, Java, web development, and AI concepts. I enjoy applying what I learn through projects and internships. I am looking for opportunities where I can contribute while continuing to strengthen my technical skills.</p></div>
+    <div class="card reveal"><div class="info-list">
+      <div class="info-row"><span class="label">Location</span><span class="value">Budavada, Andhra Pradesh, India</span></div>
+      <div class="info-row"><span class="label">Degree</span><span class="value">B.Tech CSE</span></div>
+      <div class="info-row"><span class="label">CGPA</span><span class="value">8.33</span></div>
+      <div class="info-row"><span class="label">Email</span><span class="value"><a href="mailto:lokeswary17@gmail.com">lokeswary17@gmail.com</a></span></div>
+      <div class="info-row"><span class="label">LinkedIn</span><span class="value"><a href="https://linkedin.com/in/lokeswari-darmavarapu" target="_blank" rel="noopener">Profile ↗</a></span></div>
+    </div></div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="section-head reveal"><div class="kicker">Experience</div><h2>Internship experience</h2></div>
+  <div class="timeline" id="timeline">
+    <article class="card timeline-item reveal">
+      <div class="meta">Jun 2024 – Aug 2024 · Virtual</div>
+      <h3>AI/ML Virtual Internship — EduSkills & Google AI</h3>
+      <ul><li>Learned AI and ML fundamentals using Google Cloud tools.</li><li>Worked on beginner-level AI/ML projects.</li></ul>
+    </article>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="section-head reveal"><div class="kicker">Projects</div><h2>Things I have built</h2></div>
+  <div class="project-grid">
+    <article class="card project reveal tilt">
+      <div class="meta">Web-based system</div><h3>Crowdsourced Data Privacy Analyser</h3>
+      <p>Developed a web-based system to identify data privacy risks using crowdsourced feedback, with secure data collection and privacy analysis features.</p>
+      <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">MongoDB</span></div>
+    </article>
+    <article class="card project reveal tilt">
+      <div class="meta">Full Stack Web Application</div><h3>Farm to Home</h3>
+      <p>Developed a web application that connects farmers directly with customers, including authentication, product management and order placement.</p>
+      <div class="tags"><span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">React.js</span><span class="tag">MySQL</span></div>
+    </article>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="section-head reveal"><div class="kicker">Skills</div><h2>Technical toolkit</h2></div>
+  <div class="skills stagger">
+    <div class="card skill-group reveal" style="--i:0"><h3>Languages</h3><div class="skill-list"><span class="skill">Java</span><span class="skill">C</span></div></div>
+    <div class="card skill-group reveal" style="--i:1"><h3>Web</h3><div class="skill-list"><span class="skill">HTML</span><span class="skill">CSS</span><span class="skill">JavaScript</span></div></div>
+    <div class="card skill-group reveal" style="--i:2"><h3>Frameworks</h3><div class="skill-list"><span class="skill">Spring Framework</span></div></div>
+    <div class="card skill-group reveal" style="--i:3"><h3>Tools & Databases</h3><div class="skill-list"><span class="skill">Eclipse</span><span class="skill">VS Code</span><span class="skill">MySQL</span><span class="skill">MongoDB</span></div></div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="section-head reveal"><div class="kicker">Education</div><h2>Academic background</h2></div>
+  <div class="edu-grid">
+    <div class="card edu-card reveal"><div><div class="meta">B.Tech</div><h3>QIS College of Engineering and Technology</h3><div>Computer Science and Engineering · CGPA: 8.33</div></div><div class="year">2023 – 2027</div></div>
+    <div class="card edu-card reveal"><div><div class="meta">Intermediate (MPC)</div><h3>Sri Sai Ram Junior College</h3><div>Andhra Pradesh · 83%</div></div><div class="year">2021 – 2023</div></div>
+    <div class="card edu-card reveal"><div><div class="meta">SSC</div><h3>Gowtham Concept School</h3><div>Andhra Pradesh · 97.3%</div></div><div class="year">2021</div></div>
+  </div>
+</section>
+
+<section id="extras">
+  <div class="section-head reveal"><div class="kicker">More</div><h2>Certifications & leadership</h2></div>
+  <div class="extras-grid">
+    <div class="card reveal"><h3>Certifications</h3><ul class="list-clean"><li>NPTEL Java Certification</li><li>CodeTantra Java Certification</li><li>Google Cloud Badges — Generative AI & Responsible AI</li><li>Blockchain Bootcamp — IEEE CS Society</li></ul></div>
+    <div class="card reveal"><h3>Achievements & responsibility</h3><ul class="list-clean"><li>Participated in the Quiz Competition at QIS College Fest.</li><li>Earned Google Cloud Badges in Generative AI & Responsible AI.</li><li>Team Leader — Crowdsourced Data Privacy Analyser Project; coordinated team activities and project development.</li></ul></div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact reveal">
+    <div><div class="kicker">Contact</div><h2>Let's connect.</h2><p>Interested in opportunities in software development, full-stack development, web development or AI.</p></div>
+    <div class="hero-actions"><a class="btn btn-primary" href="mailto:lokeswary17@gmail.com">Email me</a><a class="btn btn-secondary" href="https://linkedin.com/in/lokeswari-darmavarapu" target="_blank" rel="noopener">LinkedIn ↗</a></div>
+  </div>
+</section>
+
+<footer><span>© 2026 Darmavarapu Lokeswari</span><span>Built with Java • Web • AI foundations</span></footer>
+</main>
+
+<script>
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const particles = document.getElementById('particles');
+if(!reduceMotion){
+  for(let i=0;i<28;i++){
+    const p=document.createElement('span');p.className='particle';
+    p.style.left=Math.random()*100+'%';p.style.top=Math.random()*100+'%';
+    p.style.animationDelay=(-Math.random()*12)+'s';p.style.animationDuration=(9+Math.random()*8)+'s';
+    particles.appendChild(p);
+  }
+}
+const reveals=document.querySelectorAll('.reveal');
+if(!reduceMotion && 'IntersectionObserver' in window){
+  const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{threshold:.12});
+  reveals.forEach(e=>io.observe(e));
+}else reveals.forEach(e=>e.classList.add('visible'));
+
+const timeline=document.getElementById('timeline');
+const tio=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){timeline.classList.add('draw');tio.disconnect()}}),{threshold:.2});
+tio.observe(timeline);
+
+const nav=document.getElementById('nav');
+let lastY=scrollY;
+addEventListener('scroll',()=>{const y=scrollY;if(y>lastY && y>120)nav.classList.add('hidden');else nav.classList.remove('hidden');lastY=y},{passive:true});
+
+const sections=[...document.querySelectorAll('main section[id]')], links=[...document.querySelectorAll('.nav-links a')];
+const sio=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+e.target.id))}}),{rootMargin:'-35% 0px -55% 0px'});
+sections.forEach(s=>sio.observe(s));
+
+if(!reduceMotion){
+ const cursor=document.getElementById('cursor');
+ addEventListener('mousemove',e=>{cursor.style.left=e.clientX+'px';cursor.style.top=e.clientY+'px';cursor.style.opacity=1});
+ document.querySelectorAll('a,.project,.skill').forEach(el=>{
+   el.addEventListener('mouseenter',()=>{cursor.style.width='28px';cursor.style.height='28px'});
+   el.addEventListener('mouseleave',()=>{cursor.style.width='18px';cursor.style.height='18px'});
+ });
+ const hero=document.getElementById('heroVisual'),scene=document.querySelector('.scene');
+ hero.addEventListener('mousemove',e=>{const r=hero.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;scene.style.transform=`rotateY(${x*10}deg) rotateX(${-y*10}deg) translateY(-5px)`});
+ hero.addEventListener('mouseleave',()=>scene.style.transform='');
+ document.querySelectorAll('.tilt').forEach(card=>{
+   card.addEventListener('mousemove',e=>{const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;card.style.transform=`perspective(800px) rotateY(${x*5}deg) rotateX(${-y*5}deg) translateY(-5px)`});
+   card.addEventListener('mouseleave',()=>card.style.transform='');
+ });
+}
+</script>
+</body>
+</html>
